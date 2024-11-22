@@ -5,7 +5,7 @@ import classes from "./TestComponent.module.css";
 const TestComponent = () => {
   return (
     <div className={`${classes.test}`}>
-      <p>💙💜💛🧡🤍🩷🖤💚🤎</p>
+      <p>💙💜💛🧡🤍🩷🖤💚</p>
     </div>
   );
 };
