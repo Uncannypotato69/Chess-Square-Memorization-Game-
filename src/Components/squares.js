@@ -1,79 +1,266 @@
 
 const squares = [
-    { squareName: "a1", white: true },
-    { squareName: "b1", white: false },
-    { squareName: "c1", white: true },
-    { squareName: "d1", white: false },
-    { squareName: "e1", white: true },
-    { squareName: "f1", white: false },
-    { squareName: "g1", white: true },
-    { squareName: "h1", white: false },
-    { squareName: "a2", white: false },
-    { squareName: "b2", white: true },
-    { squareName: "c2", white: false },
-    { squareName: "d2", white: true },
-    { squareName: "e2", white: false },
-    { squareName: "f2", white: true },
-    { squareName: "g2", white: false },
-    { squareName: "h2", white: true },
-    { squareName: "a3", white: true },
-    { squareName: "b3", white: false },
-    { squareName: "c3", white: true },
-    { squareName: "d3", white: false },
-    { squareName: "e3", white: true },
-    { squareName: "f3", white: false },
-    { squareName: "g3", white: true },
-    { squareName: "h3", white: false },
-    { squareName: "a4", white: false },
-    { squareName: "b4", white: true },
-    { squareName: "c4", white: false },
-    { squareName: "d4", white: true },
-    { squareName: "e4", white: false },
-    { squareName: "f4", white: true },
-    { squareName: "g4", white: false },
-    { squareName: "h4", white: true },
-    { squareName: "a5", white: true },
-    { squareName: "b5", white: false },
-    { squareName: "c5", white: true },
-    { squareName: "d5", white: false },
-    { squareName: "e5", white: true },
-    { squareName: "f5", white: false },
-    { squareName: "g5", white: true },
-    { squareName: "h5", white: false },
-    { squareName: "a6", white: false },
-    { squareName: "b6", white: true },
-    { squareName: "c6", white: false },
-    { squareName: "d6", white: true },
-    { squareName: "e6", white: false },
-    { squareName: "f6", white: true },
-    { squareName: "g6", white: false },
-    { squareName: "h6", white: true },
-    { squareName: "a7", white: true },
-    { squareName: "b7", white: false },
-    { squareName: "c7", white: true },
-    { squareName: "d7", white: false },
-    { squareName: "e7", white: true },
-    { squareName: "f7", white: false },
-    { squareName: "g7", white: true },
-    { squareName: "h7", white: false },
-    { squareName: "a8", white: false },
-    { squareName: "b8", white: true },
-    { squareName: "c8", white: false },
-    { squareName: "d8", white: true },
-    { squareName: "e8", white: false },
-    { squareName: "f8", white: true },
-    { squareName: "g8", white: false },
-    { squareName: "h8", white: true },
-  ];
-
-
-const toggledSquares = squares.map((square) => ({
-  ...square,
-  white: !square.white,
-}));
+  {
+      "squareName": "a1",
+      "white": false
+  },
+  {
+      "squareName": "a2",
+      "white": true
+  },
+  {
+      "squareName": "a3",
+      "white": false
+  },
+  {
+      "squareName": "a4",
+      "white": true
+  },
+  {
+      "squareName": "a5",
+      "white": false
+  },
+  {
+      "squareName": "a6",
+      "white": true
+  },
+  {
+      "squareName": "a7",
+      "white": false
+  },
+  {
+      "squareName": "a8",
+      "white": true
+  },
+  {
+      "squareName": "b1",
+      "white": true
+  },
+  {
+      "squareName": "b2",
+      "white": false
+  },
+  {
+      "squareName": "b3",
+      "white": true
+  },
+  {
+      "squareName": "b4",
+      "white": false
+  },
+  {
+      "squareName": "b5",
+      "white": true
+  },
+  {
+      "squareName": "b6",
+      "white": false
+  },
+  {
+      "squareName": "b7",
+      "white": true
+  },
+  {
+      "squareName": "b8",
+      "white": false
+  },
+  {
+      "squareName": "c1",
+      "white": false
+  },
+  {
+      "squareName": "c2",
+      "white": true
+  },
+  {
+      "squareName": "c3",
+      "white": false
+  },
+  {
+      "squareName": "c4",
+      "white": true
+  },
+  {
+      "squareName": "c5",
+      "white": false
+  },
+  {
+      "squareName": "c6",
+      "white": true
+  },
+  {
+      "squareName": "c7",
+      "white": false
+  },
+  {
+      "squareName": "c8",
+      "white": true
+  },
+  {
+      "squareName": "d1",
+      "white": true
+  },
+  {
+      "squareName": "d2",
+      "white": false
+  },
+  {
+      "squareName": "d3",
+      "white": true
+  },
+  {
+      "squareName": "d4",
+      "white": false
+  },
+  {
+      "squareName": "d5",
+      "white": true
+  },
+  {
+      "squareName": "d6",
+      "white": false
+  },
+  {
+      "squareName": "d7",
+      "white": true
+  },
+  {
+      "squareName": "d8",
+      "white": false
+  },
+  {
+      "squareName": "e1",
+      "white": false
+  },
+  {
+      "squareName": "e2",
+      "white": true
+  },
+  {
+      "squareName": "e3",
+      "white": false
+  },
+  {
+      "squareName": "e4",
+      "white": true
+  },
+  {
+      "squareName": "e5",
+      "white": false
+  },
+  {
+      "squareName": "e6",
+      "white": true
+  },
+  {
+      "squareName": "e7",
+      "white": false
+  },
+  {
+      "squareName": "e8",
+      "white": true
+  },
+  {
+      "squareName": "f1",
+      "white": true
+  },
+  {
+      "squareName": "f2",
+      "white": false
+  },
+  {
+      "squareName": "f3",
+      "white": true
+  },
+  {
+      "squareName": "f4",
+      "white": false
+  },
+  {
+      "squareName": "f5",
+      "white": true
+  },
+  {
+      "squareName": "f6",
+      "white": false
+  },
+  {
+      "squareName": "f7",
+      "white": true
+  },
+  {
+      "squareName": "f8",
+      "white": false
+  },
+  {
+      "squareName": "g1",
+      "white": false
+  },
+  {
+      "squareName": "g2",
+      "white": true
+  },
+  {
+      "squareName": "g3",
+      "white": false
+  },
+  {
+      "squareName": "g4",
+      "white": true
+  },
+  {
+      "squareName": "g5",
+      "white": false
+  },
+  {
+      "squareName": "g6",
+      "white": true
+  },
+  {
+      "squareName": "g7",
+      "white": false
+  },
+  {
+      "squareName": "g8",
+      "white": true
+  },
+  {
+      "squareName": "h1",
+      "white": true
+  },
+  {
+      "squareName": "h2",
+      "white": false
+  },
+  {
+      "squareName": "h3",
+      "white": true
+  },
+  {
+      "squareName": "h4",
+      "white": false
+  },
+  {
+      "squareName": "h5",
+      "white": true
+  },
+  {
+      "squareName": "h6",
+      "white": false
+  },
+  {
+      "squareName": "h7",
+      "white": true
+  },
+  {
+      "squareName": "h8",
+      "white": false
+  }
+]
 
 const returnSquares = () => {
-  return toggledSquares;
+  return squares;
 } 
   
 export default returnSquares
+
