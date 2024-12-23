@@ -258,9 +258,41 @@ const squares = [
   }
 ]
 
-const returnSquares = () => {
-  return squares;
-} 
-  
-export default returnSquares
 
+const boardConfig = {
+    dimension: 500,
+    lightColor: "#ede9fe",
+    darkColor: "#8b5cf6",
+    fontSize: 16,
+    fontFamily: "monospace"
+  };
+  
+const squareData = (config) => {
+    let dimension = config.dimension
+    let fontSize = config.fontSize
+    let squareDimesion = dimension / 8
+
+     return squares.map((e, i) => {
+        let x = i % 8 === 0 ? 0 : (i % 8) * (dimension / 8);
+        let xText = i % 8 === 0 ? squareDimesion - (fontSize + 4) : squareDimesion + (i % 8) * (dimension / 8) - (fontSize + 4);
+        let y = (dimension - squareDimesion) - Math.floor(i / 8) * squareDimesion;
+        let yText = (dimension - squareDimesion) - Math.floor(i / 8) * squareDimesion + 14;
+
+        return {
+            ...e,
+            squareDimesion,
+            x,
+            y,
+            xText,
+            yText,
+        }
+    })
+    
+}
+
+const returnSquares = () => {
+    return [squareData(boardConfig), boardConfig];
+  } 
+    
+  export default returnSquares
+  

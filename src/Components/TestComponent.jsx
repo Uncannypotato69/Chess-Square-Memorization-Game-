@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import classes from "./TestComponent.module.css";
 
@@ -6,48 +6,44 @@ import returnSquares from "./squares";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
 
 const TestComponent = () => {
-  const [boardConfig, setBoardConfig] = useState({
-    dimension: 500,
-    lightColor: "#ede9fe",
-    DarkColor: "#8b5cf6",
-    fontSize: 14,
+  const data = returnSquares();
+  const squares = data[0];
+  const boardConfig = data[1];
+
+  const squaresRef = useRef([]);
+
+  useEffect(() => {
+    console.log(squaresRef.current[0].children);
   });
 
-  const sqaures = returnSquares();
-  console.log(sqaures);
+  //! Create pick-at-random-system and do other stuff
 
   return (
-    <svg width={400} height={400}>
-      {sqaures.map((e, i) => {
-        let row = i + 1;
-
-        let x = i % 8 === 0 ? 0 : (i % 8) * (400 / 8);
-        let xText = i % 8 === 0 ? 50 - 18 : 50 + (i % 8) * (400 / 8) - 18;
-        let y = 350 - Math.floor(i / 8) * 50;
-        let yText = 350 - Math.floor(i / 8) * 50 + 14;
-        console.log(yText);
-
+    <svg width={boardConfig.dimension} height={boardConfig.dimension}>
+      {squares.map((e, i) => {
         return (
-          <>
+          <g ref={(el) => (squaresRef.current[i] = el)}>
             <rect
-              height={400 / 8}
-              width={400 / 8}
-              x={x}
-              y={y}
+              height={e.squareDimesion}
+              width={e.squareDimesion}
+              x={e.x}
+              y={e.y}
               key={i + `${e.squareName}`}
-              fill={e.white ? "#ede9fe" : "#8b5cf6"}
+              fill={e.white ? boardConfig.lightColor : boardConfig.darkColor}
               name={e.squareName}
             ></rect>
             <text
-              fontFamily="monospace"
-              fontSize={14}
-              x={xText}
-              y={yText}
-              fill={e.white ? "#8b5cf6" : "#ede9fe"}
+              fontFamily={boardConfig.fontFamily}
+              fontSize={e.fontSize}
+              x={e.xText}
+              y={e.yText}
+              key={i + `${e.squareName} ${e.white}`}
+              fill={e.white ? boardConfig.darkColor : boardConfig.lightColor}
+              className={`${classes.svg__text} unselectable`}
             >
               {e.squareName.toUpperCase()}
             </text>
-          </>
+          </g>
         );
       })}
     </svg>
