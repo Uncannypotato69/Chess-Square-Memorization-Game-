@@ -260,9 +260,9 @@ const squares = [
 
 
 const boardConfig = {
-    dimension: 500,
-    lightColor: "#ede9fe",
-    darkColor: "#8b5cf6",
+    dimension: 400,
+    lightColor: "#fef3c7",
+    darkColor: "#fb923c",
     fontSize: 16,
     fontFamily: "monospace"
   };

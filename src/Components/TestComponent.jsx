@@ -12,9 +12,13 @@ const TestComponent = () => {
 
   const squaresRef = useRef([]);
 
-  useEffect(() => {
-    console.log(squaresRef.current[0].children);
-  });
+  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+  // useEffect(() => {
+  //   let randomSquare = random(-1, 64);
+  //   squaresRef.current[randomSquare].children[0].style.fill = "limegreen";
+  //   squaresRef.current[randomSquare].children[1].style.fill = "white";
+  // }, []);
 
   //! Create pick-at-random-system and do other stuff
 

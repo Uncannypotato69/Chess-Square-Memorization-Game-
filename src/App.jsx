@@ -7,12 +7,18 @@ import "./Styles/style.css";
 import "./Styles/utils.css";
 
 import TestComponent from "./Components/TestComponent";
+import SquareCarousel from "./Components/SquareCarousel";
 
 const domNode = document.querySelector("#root");
 const root = createRoot(domNode);
 
 export const App = () => {
-  return <TestComponent />;
+  return (
+    <div className="testSection">
+      <SquareCarousel />
+      <TestComponent />
+    </div>
+  );
 };
 
 root.render(<App />);
