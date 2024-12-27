@@ -14,11 +14,21 @@ const TestComponent = () => {
 
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-  // useEffect(() => {
-  //   let randomSquare = random(-1, 64);
+  // const highlighter = setInterval(() => {
+  //   let randomSquare = random(0, 64);
+  //   if (typeof squaresRef.current[randomSquare].children[0] == undefined) {
+  //     console.log(squaresRef.current[randomSquare].children[0]);
+  //   }
   //   squaresRef.current[randomSquare].children[0].style.fill = "limegreen";
   //   squaresRef.current[randomSquare].children[1].style.fill = "white";
-  // }, []);
+  // }, 1000);
+
+  useEffect(() => {
+    // let randomSquare = random(-1, 64);
+    // squaresRef.current[randomSquare].children[0].style.fill = "limegreen";
+    // squaresRef.current[randomSquare].children[1].style.fill = "white";
+    // highlighter;
+  }, []);
 
   //! Create pick-at-random-system and do other stuff
 
@@ -26,7 +36,10 @@ const TestComponent = () => {
     <svg width={boardConfig.dimension} height={boardConfig.dimension}>
       {squares.map((e, i) => {
         return (
-          <g ref={(el) => (squaresRef.current[i] = el)}>
+          <g
+            ref={(el) => (squaresRef.current[i] = el)}
+            squarecoordinates={e.squareName}
+          >
             <rect
               height={e.squareDimesion}
               width={e.squareDimesion}

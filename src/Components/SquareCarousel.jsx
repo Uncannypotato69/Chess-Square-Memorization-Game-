@@ -1,52 +1,90 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import classes from "./SquareCarousel.module.css";
+import { squares } from "./squares.js";
+
 const SquareCarousel = () => {
-  const squareTextRef1 = useRef();
-  const squareTextRef2 = useRef();
-  const squareTextRef3 = useRef();
+  const coordinatesRef = useRef([]);
 
-  const [isSliding, setIsSliding] = useState(false);
+  const [isclicked, setIsClicked] = useState(0);
+  const [coordinates, setCoordinates] = useState([]);
 
-  const doSlideStuff = () => {
-    console.log(squareTextRef1.current.className);
-    console.log(squareTextRef2.current);
-    console.log(squareTextRef3.current);
+  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+  const squarenames = squares.map((e, i) => e["squareName"]);
+  const initialSquares = Array.from(
+    { length: 3 },
+    () => squarenames[random(0, 64)]
+  );
+  console.log(initialSquares);
+
+  useEffect(() => {
+    setCoordinates(() => [...coordinatesRef.current]);
+    addStyles([...coordinatesRef.current]);
+  }, []);
+
+  const addStyles = (arr) => {
+    let styles = [
+      {
+        color: "limegreen",
+        scale: 2,
+        right: "50%",
+        transition: "300ms all",
+      },
+      {
+        color: "yellow",
+        right: "0%",
+        scale: 1,
+        transition: "300ms all",
+      },
+      {
+        color: "pink",
+        scale: 0,
+        right: "-25%",
+        transition: "none",
+      },
+    ];
+
+    arr.map((e, i) => {
+      Object.assign(e.style, styles[i]);
+    });
   };
 
   useEffect(() => {
-    doSlideStuff();
-  });
+    if (isclicked > 0) {
+      let newCoordinates = [...coordinates];
+      let shiftedItem = newCoordinates.shift();
+      newCoordinates.push(shiftedItem);
+      newCoordinates.map((e, i) => console.log(newCoordinates[i]));
+      addStyles(newCoordinates);
+      setCoordinates(newCoordinates);
+    }
+  }, [isclicked]);
 
   return (
     <>
-      <div className="carousel__container">
-        <span
-          className={`squareNameText ${isSliding ? "bigToSmall" : ""}`}
-          ref={squareTextRef1}
+      <div className={`${classes.carousel}`}>
+        {Array.from({ length: 3 }).map((e, i) => {
+          return (
+            <span
+              className={`${classes.carousel__coordinate}`}
+              ref={(e) => {
+                coordinatesRef.current[i] = e;
+              }}
+              coordinate={`sq${i + 1}`}
+            >
+              {`a${i + 1}`}
+            </span>
+          );
+        })}
+        <button
+          onClick={() => {
+            setIsClicked(isclicked + 1);
+          }}
         >
-          e5
-        </span>
-        <span
-          className={`squareNameText ${isSliding ? "smallToBig" : ""}`}
-          ref={squareTextRef2}
-        >
-          c8
-        </span>
-        <span
-          className={`squareNameText ${isSliding ? "intoFrame" : ""}`}
-          ref={squareTextRef3}
-        >
-          g2
-        </span>
+          button
+        </button>
       </div>
-      <button
-        className="button"
-        onClick={() => {
-          setIsSliding(!isSliding);
-        }}
-      >
-        button
-      </button>
     </>
   );
 };

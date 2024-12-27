@@ -1,5 +1,5 @@
 
-const squares = [
+export const squares = [
   {
       "squareName": "a1",
       "white": false
@@ -260,7 +260,7 @@ const squares = [
 
 
 const boardConfig = {
-    dimension: 400,
+    dimension: 480,
     lightColor: "#fef3c7",
     darkColor: "#fb923c",
     fontSize: 16,

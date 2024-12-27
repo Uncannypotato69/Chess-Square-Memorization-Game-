@@ -1,0 +1,34 @@
+.carousel {
+    height: 6rem;
+    aspect-ratio: 2/1;
+    border: 2px solid silver;
+    position: relative;
+}
+
+.carousel__coordinate {
+    position: absolute;
+    font-size: 1.5rem;
+    bottom: 0.5rem;
+    transform-origin: bottom left;
+    transition: 300ms all;
+    color: navajowhite;
+    right: 50%;
+}
+
+.TBC {
+    color: springgreen;
+    scale: 2;
+}
+
+.CTS {
+    scale: 0;
+    color: inherit;
+}
+
+.STH {
+    right: -25%;
+}
+
+.HTW {
+    right: calc(0% + 0.5rem);
+}
