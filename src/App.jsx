@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { createRoot } from "react-dom/client";
 
@@ -9,14 +9,20 @@ import "./Styles/utils.css";
 import TestComponent from "./Components/TestComponent";
 import SquareCarousel from "./Components/SquareCarousel";
 
+export const SquareContext = createContext([]);
+
 const domNode = document.querySelector("#root");
 const root = createRoot(domNode);
 
-export const App = () => {
+const App = () => {
+  const [squares, setsquares] = useState([]);
+
   return (
     <div className="testSection">
-      <SquareCarousel />
-      <TestComponent />
+      <SquareContext.Provider value={[squares, setsquares]}>
+        <SquareCarousel />
+        <TestComponent />
+      </SquareContext.Provider>
     </div>
   );
 };

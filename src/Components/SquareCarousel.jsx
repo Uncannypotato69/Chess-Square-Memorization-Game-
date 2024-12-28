@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import classes from "./SquareCarousel.module.css";
 import { squares } from "./squares.js";
+import { random } from "./Helpers/helpers.js";
+import { SquareContext } from "../App";
 
 const SquareCarousel = () => {
   const coordinatesRef = useRef([]);
@@ -9,18 +11,17 @@ const SquareCarousel = () => {
   const [isclicked, setIsClicked] = useState(0);
   const [coordinates, setCoordinates] = useState([]);
 
-  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
   const squarenames = squares.map((e, i) => e["squareName"]);
-  const initialSquares = Array.from(
-    { length: 3 },
-    () => squarenames[random(0, 64)]
-  );
-  console.log(initialSquares);
+  const [squareRects, setsquareRects] = useContext(SquareContext);
+
+  useEffect(() => {
+    console.log(squareRects);
+  }, [squareRects]);
 
   useEffect(() => {
     setCoordinates(() => [...coordinatesRef.current]);
     addStyles([...coordinatesRef.current]);
+    addInitialSquares([...coordinatesRef.current]);
   }, []);
 
   const addStyles = (arr) => {
@@ -47,6 +48,16 @@ const SquareCarousel = () => {
 
     arr.map((e, i) => {
       Object.assign(e.style, styles[i]);
+    });
+  };
+
+  const addInitialSquares = (arr) => {
+    const initialSquares = Array.from(
+      { length: 3 },
+      () => squarenames[random(0, 64)]
+    );
+    arr.map((e, i) => {
+      e.textContent = initialSquares[i];
     });
   };
 
