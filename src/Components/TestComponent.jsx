@@ -22,7 +22,7 @@ const TestComponent = () => {
   //! Create pick-at-random-system and do other stuff
 
   return (
-    <svg width={boardConfig.dimension} height={boardConfig.dimension}>
+    <svg length="auto" className="board" viewBox="0 0 480 480">
       {squareData.map((e, i) => {
         return (
           <>
@@ -35,6 +35,7 @@ const TestComponent = () => {
               fill={e.white ? boardConfig.lightColor : boardConfig.darkColor}
               data-name={e.squareName}
               ref={(el) => (squaresRef.current[i] = el)}
+              className="rects"
             ></rect>
             <text
               fontFamily={boardConfig.fontFamily}

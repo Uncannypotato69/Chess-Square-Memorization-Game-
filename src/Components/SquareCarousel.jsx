@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 
 import classes from "./SquareCarousel.module.css";
 import { squares } from "./squares.js";
-import { random } from "./Helpers/helpers.js";
+import { random } from "./Utlis/random.js";
 import { SquareContext } from "../App";
 
 const SquareCarousel = () => {

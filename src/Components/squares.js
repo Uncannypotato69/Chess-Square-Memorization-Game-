@@ -1,5 +1,5 @@
 
-export const squares = [
+ export const squares = [
   {
       "squareName": "a1",
       "white": false

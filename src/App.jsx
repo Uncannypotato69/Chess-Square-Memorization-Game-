@@ -9,10 +9,14 @@ import "./Styles/utils.css";
 import TestComponent from "./Components/TestComponent";
 import SquareCarousel from "./Components/SquareCarousel";
 
+import squareData from "./Components/Helpers/squareData";
+
 export const SquareContext = createContext([]);
 
 const domNode = document.querySelector("#root");
 const root = createRoot(domNode);
+
+squareData();
 
 const App = () => {
   const [squares, setsquares] = useState([]);
@@ -20,7 +24,6 @@ const App = () => {
   return (
     <div className="testSection">
       <SquareContext.Provider value={[squares, setsquares]}>
-        <SquareCarousel />
         <TestComponent />
       </SquareContext.Provider>
     </div>

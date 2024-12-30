@@ -87,3 +87,10 @@ body {
     right: 0%;
     scale: 1;
 }
+
+.board {
+    min-width: 256px;
+    min-height: 256px;
+    max-height: 560px;
+    max-width: 560px;
+}
