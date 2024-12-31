@@ -7,6 +7,7 @@ import "./Styles/style.css";
 import "./Styles/utils.css";
 
 import TestComponent from "./Components/TestComponent";
+import Board from "./Components/Board";
 import SquareCarousel from "./Components/SquareCarousel";
 
 import squareData from "./Components/Helpers/squareData";
@@ -24,7 +25,9 @@ const App = () => {
   return (
     <div className="testSection">
       <SquareContext.Provider value={[squares, setsquares]}>
-        <TestComponent />
+        {/* <TestComponent /> */}
+        <Board orientation="asWhite" type="findSquare" />
+        <Board orientation="asBlack" type="findSquare" />
       </SquareContext.Provider>
     </div>
   );

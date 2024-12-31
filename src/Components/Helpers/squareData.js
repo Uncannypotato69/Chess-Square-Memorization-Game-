@@ -1,22 +1,52 @@
 import { squares } from "./squarenames";
 import boardConfig from "../Constants/boardConfig";
 
-const squareData = (orientation) => {
+const squareData = (orientation, type) => {
   let sqs = squares;
-  let {dimension, darkColor, lightColor, fontSize, squareDimnsion} = boardConfig;
-  console.log(dimension, darkColor, lightColor, fontSize, squareDimnsion)
+  let {dimension, darkColor, lightColor, fontSize, squareDimension} = boardConfig;
 
-  // let x = i % 8 === 0 ? 0 : (i % 8) * (dimension / 8);
-  // let xText = i % 8 === 0 ? squareDimesion - (fontSize + 4) : squareDimesion + (i % 8) * (dimension / 8) - (fontSize + 4);
-  // let y = (dimension - squareDimesion) - Math.floor(i / 8) * squareDimesion;
-  // let yText = (dimension - squareDimesion) - Math.floor(i / 8) * squareDimesion + 14;
+  const getSquarePosition = (i, dimension, squareDimension, fontSize, orientation) => {
+    const col = i % 8;
+    const row = Math.floor(i / 8);
+    
+    const x = orientation === "asWhite" 
+      ? col * (dimension / 8)
+      : dimension - ((col + 1) * squareDimension);
+      
+    const y = orientation === "asWhite"
+      ? dimension - squareDimension - (row * squareDimension)
+      : row * squareDimension;
+      
+    const textOffset = fontSize + 4;
+    
+    const xText = orientation === "asWhite"
+      ? x + squareDimension - textOffset
+      : x + 4;
+      
+    const yText = y + 8;
+  
+    return { x, y, xText, yText };
+  };
 
+
+  const sqsWithData = sqs.map((e, i) => {
+
+     let {x, y, xText, yText} = getSquarePosition(i, dimension, squareDimension, fontSize, orientation)
+    
+  return {
+    ...e,
+    x,
+    y,
+    xText, 
+    yText
+  }
+  })
+
+ return {sqsWithData, dimension, darkColor, lightColor, fontSize, squareDimension};
 };
 
 export default squareData;
 
-
-//! 1. Make the function to get sqares with Data
-//? 2. Make the custom component for board 
-
-  
+//! Make comments for the code
+//? Delete the extra files
+//* Start working on the carousel
