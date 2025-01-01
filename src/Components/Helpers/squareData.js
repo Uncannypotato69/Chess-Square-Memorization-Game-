@@ -1,37 +1,20 @@
 import { squares } from "./squarenames";
 import boardConfig from "../Constants/boardConfig";
+import getSquarePosition from "./getSquareData";
 
 const squareData = (orientation, type) => {
+
+  // Array of squareNames
   let sqs = squares;
+
+  // constants
   let {dimension, darkColor, lightColor, fontSize, squareDimension} = boardConfig;
 
-  const getSquarePosition = (i, dimension, squareDimension, fontSize, orientation) => {
-    const col = i % 8;
-    const row = Math.floor(i / 8);
-    
-    const x = orientation === "asWhite" 
-      ? col * (dimension / 8)
-      : dimension - ((col + 1) * squareDimension);
-      
-    const y = orientation === "asWhite"
-      ? dimension - squareDimension - (row * squareDimension)
-      : row * squareDimension;
-      
-    const textOffset = fontSize + 4;
-    
-    const xText = orientation === "asWhite"
-      ? x + squareDimension - textOffset
-      : x + 4;
-      
-    const yText = y + 8;
-  
-    return { x, y, xText, yText };
-  };
-
-
+  // returns an array containing objects for each square adding information about their position
   const sqsWithData = sqs.map((e, i) => {
 
-     let {x, y, xText, yText} = getSquarePosition(i, dimension, squareDimension, fontSize, orientation)
+    // gets the info from every square Object
+    let {x, y, xText, yText} = getSquarePosition(i, dimension, squareDimension, fontSize, orientation)
     
   return {
     ...e,
@@ -48,5 +31,5 @@ const squareData = (orientation, type) => {
 export default squareData;
 
 //! Make comments for the code
-//? Delete the extra files
+//// Delete the extra files
 //* Start working on the carousel
