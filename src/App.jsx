@@ -6,8 +6,7 @@ import "./Styles/modern-normalize.css";
 import "./Styles/style.css";
 import "./Styles/utils.css";
 
-import TestComponent from "./Components/TestComponent";
-import Board from "./Components/Board";
+import Board from "./Components/Board/Board";
 import SquareCarousel from "./Components/SquareCarousel";
 
 import squareData from "./Components/Helpers/squareData";
@@ -27,7 +26,6 @@ const App = () => {
       <SquareContext.Provider value={[squares, setsquares]}>
         {/* <TestComponent /> */}
         <Board orientation="asWhite" type="findSquare" />
-        <Board orientation="asBlack" type="findSquare" />
       </SquareContext.Provider>
     </div>
   );
