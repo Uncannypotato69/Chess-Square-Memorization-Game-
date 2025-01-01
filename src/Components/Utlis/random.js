@@ -4,6 +4,6 @@
 
 
   //? pick random item from an array
-  export const sampleOne = (arr) => {
+  export const pickRandomItem = (arr) => {
     return arr[Math.floor(Math.random() * arr.length)];
   };

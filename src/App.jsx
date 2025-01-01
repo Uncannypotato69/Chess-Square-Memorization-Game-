@@ -9,6 +9,8 @@ import "./Styles/utils.css";
 import Board from "./Components/Board/Board";
 import SquareCarousel from "./Components/SquareCarousel";
 
+import Carousel from "./Components/Carousel/Carousel";
+
 import squareData from "./Components/Helpers/squareData";
 
 export const SquareContext = createContext([]);
@@ -24,7 +26,7 @@ const App = () => {
   return (
     <div className="testSection">
       <SquareContext.Provider value={[squares, setsquares]}>
-        {/* <TestComponent /> */}
+        <Carousel />
         <Board orientation="asWhite" type="findSquare" />
       </SquareContext.Provider>
     </div>

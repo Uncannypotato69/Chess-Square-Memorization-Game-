@@ -29,9 +29,3 @@ const squareData = (orientation, type) => {
 };
 
 export default squareData;
-
-//! Make comments for the code
-//? Delete the extra files
-//* Delete the extra files
-//// Delete the extra files
-//todo Start working on the carousel
