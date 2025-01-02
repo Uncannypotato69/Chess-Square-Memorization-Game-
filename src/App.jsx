@@ -13,8 +13,6 @@ import Carousel from "./Components/Carousel/Carousel";
 
 import squareData from "./Components/Helpers/squareData";
 
-export const SquareContext = createContext([]);
-
 const domNode = document.querySelector("#root");
 const root = createRoot(domNode);
 
@@ -25,10 +23,8 @@ const App = () => {
 
   return (
     <div className="testSection">
-      <SquareContext.Provider value={[squares, setsquares]}>
-        <Carousel />
-        <Board orientation="asWhite" type="findSquare" />
-      </SquareContext.Provider>
+      <Carousel />
+      <Board orientation="asWhite" type="findSquare" />
     </div>
   );
 };

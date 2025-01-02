@@ -1,6 +1,8 @@
 import React from "react";
 
-import classes from "../TestComponent.module.css";
+import BoardRect from "./BoardRect";
+import BoardText from "./BoardText";
+import useRects from "./useRects";
 
 const BoardTemplate = ({
   squareDimension,
@@ -9,33 +11,29 @@ const BoardTemplate = ({
   darkColor,
   fontSize,
 }) => {
+  const { rects, rectsRef } = useRects();
+
   // 8x8 Grid of rects and texts
   return (
     <svg length="auto" className="board" viewBox="0 0 256 256">
       {sqsWithData.map((e, i) => {
         return (
           <React.Fragment key={`group-${e.squareName}-${i}`}>
-            <rect
-              height={squareDimension}
-              width={squareDimension}
-              x={e.x}
-              y={e.y}
-              key={`rect-${e.squareName}-${i}`}
-              fill={e.white ? lightColor : darkColor}
-              data-name={e.squareName}
-              className="rects"
-            ></rect>
-            <text
-              fontFamily={"monospace"}
+            <BoardRect
+              squareDimension={squareDimension}
+              lightColor={lightColor}
+              darkColor={darkColor}
+              e={e}
+              i={i}
+              rectsRef={rectsRef}
+            />
+            <BoardText
               fontSize={fontSize}
-              x={e.xText}
-              y={e.yText}
-              key={`text-${e.squareName}-${i}`}
-              fill={e.white ? darkColor : lightColor}
-              className={`${classes.svg__text} unselectable`}
-            >
-              {e.squareName.toUpperCase()}
-            </text>
+              lightColor={lightColor}
+              darkColor={darkColor}
+              e={e}
+              i={i}
+            />
           </React.Fragment>
         );
       })}

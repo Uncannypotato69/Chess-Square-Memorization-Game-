@@ -3,13 +3,14 @@ import { pickRandomItem } from "../Utlis/random";
 import changeText from "./changeText";
 
 const useInitialSquares = (squareNames) => {
-  const [initialSquares, setInitialSquares] = useState();
+  const [initialSquares, setInitialSquares] = useState([]);
 
   useEffect(() => {
     const initialSquares = Array.from({ length: 3 }, () =>
       pickRandomItem(squareNames)
     );
     setInitialSquares(initialSquares);
+    console.log(initialSquares);
   }, []);
 
   return { initialSquares };

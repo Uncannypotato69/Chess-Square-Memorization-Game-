@@ -6,14 +6,11 @@ import CarouselTemplate from "./CarouselTemplate";
 const Carousel = (type) => {
   const squareNames = squares.map((e) => e.squareName);
 
-  const { initialSquares } = useInitialSquares(squareNames);
-
-  return <CarouselTemplate initialSquares={initialSquares} />;
+  return <CarouselTemplate squareNames={squareNames} />;
 };
 
 export default Carousel;
 
-//todo Fix the initialization problem with the squares
-//* Setup the useRefs for squareNames and squaresRects
-//! write the onClick function for the board
-//? Connect Caousel and Board
+//todo Create pages and setup ReactRouter　ハーシャウ
+//todo Use contextAPI to connect carousel and board
+//! write the onClick function for the rects
