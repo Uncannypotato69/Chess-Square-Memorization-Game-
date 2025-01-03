@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import useInitialSquares from "./useInitialSquares";
 import { useSearchParams } from "react-router-dom";
 import useSpanRefs from "./useSpans";
+import { useContext } from "react";
+import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
 
-const CarouselTemplate = ({ squareNames }) => {
-  const { initialSquares } = useInitialSquares(squareNames);
-  const { spans, spansRef } = useSpanRefs(initialSquares);
+const CarouselTemplate = () => {
+  const { spans, spansRef, initialSquares } = useContext(FindSquareContext);
 
   return (
     <div className={`caraousel`}>

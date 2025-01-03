@@ -7,8 +7,7 @@ const useRects = () => {
 
   useEffect(() => {
     setRects(rectsRef.current);
-    console.log(rectsRef.current);
-  });
+  }, [rects]);
 
   return { rects, rectsRef };
 };

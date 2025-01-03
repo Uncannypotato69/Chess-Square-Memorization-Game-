@@ -1,32 +1,39 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-
 import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import "./Styles/modern-normalize.css";
 import "./Styles/style.css";
 import "./Styles/utils.css";
 
-import Board from "./Components/Board/Board";
-import SquareCarousel from "./Components/SquareCarousel";
-
+import FindSquareMenu from "./Pages/FindSquare/FindSquareMenu";
+import Homepage from "./Pages/HomePage/Homepage";
 import Carousel from "./Components/Carousel/Carousel";
+import FindSquareArena from "./Pages/FindSquare/FIndSquareArena";
 
-import squareData from "./Components/Helpers/squareData";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Homepage />,
+  },
+  {
+    path: `/find-square-menu`,
+    element: <FindSquareMenu />,
+    children: [
+      {
+        path: "/find-square-menu/find-square-arena",
+        element: <FindSquareArena />,
+      },
+    ],
+  },
+]);
 
 const domNode = document.querySelector("#root");
 const root = createRoot(domNode);
 
-squareData();
-
 const App = () => {
-  const [squares, setsquares] = useState([]);
-
-  return (
-    <div className="testSection">
-      <Carousel />
-      <Board orientation="asWhite" type="findSquare" />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 root.render(<App />);

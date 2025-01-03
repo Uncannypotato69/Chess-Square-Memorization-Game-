@@ -8,7 +8,6 @@ const useSpanRefs = (initialSquares) => {
 
   useEffect(() => {
     setSpans(spansRef.current);
-    console.log(spans);
   }, [initialSquares]);
 
   return { spans, spansRef };
