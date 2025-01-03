@@ -7,7 +7,7 @@ import "./Styles/modern-normalize.css";
 import "./Styles/style.css";
 import "./Styles/utils.css";
 
-import FindSquareMenu from "./Pages/FindSquare/FindSquareMenu";
+import FindSquareMenu from "./Pages/FindSquare/FIndSquareMenu";
 import Homepage from "./Pages/HomePage/Homepage";
 import Carousel from "./Components/Carousel/Carousel";
 import FindSquareArena from "./Pages/FindSquare/FIndSquareArena";
