@@ -4,12 +4,24 @@ import { useSearchParams } from "react-router-dom";
 import useSpanRefs from "./useSpans";
 import { useContext } from "react";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
+import changeText from "./changeText";
 
 const CarouselTemplate = () => {
-  const { spans, spansRef, initialSquares } = useContext(FindSquareContext);
+  const {
+    spans,
+    spansRef,
+    initialSquares,
+    activeRect,
+    squareNames,
+    setInitialSquares,
+  } = useContext(FindSquareContext);
+
+  useEffect(() => {
+    changeText(squareNames, initialSquares, setInitialSquares);
+  }, [activeRect]);
 
   return (
-    <div className={`caraousel`}>
+    <div className={`carousel`}>
       {initialSquares.map((e, i) => {
         return (
           <span

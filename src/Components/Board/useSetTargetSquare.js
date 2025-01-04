@@ -4,13 +4,13 @@ import { useState, useEffect } from 'react';
 
 import React from 'react'
 
-const useSetTargetSquare = (initialSquares) => {
+const useSetTargetSquare = (initialSquares, activeRect) => {
 
   const [isTargetSquare, setisTargetSquare] = useState([]);
 
   useEffect(() => {
     setisTargetSquare(() => initialSquares[0]);
-  }, [initialSquares]);
+  }, [initialSquares, activeRect]);
   
   return {isTargetSquare}
  

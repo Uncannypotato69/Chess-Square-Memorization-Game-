@@ -14,8 +14,9 @@ const BoardTemplate = ({
   darkColor,
   fontSize,
 }) => {
-  const { rects, rectsRef, initialSquares } = useContext(FindSquareContext);
-  const { isTargetSquare } = useSetTargetSquare(initialSquares);
+  const { rects, rectsRef, initialSquares, activeRect } =
+    useContext(FindSquareContext);
+  const { isTargetSquare } = useSetTargetSquare(initialSquares, activeRect);
   // const [isTargetSquare, setisTargetSquare] = useState([]);
 
   // useEffect(() => {

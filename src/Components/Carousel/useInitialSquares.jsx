@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { pickRandomItem } from "../Utlis/random";
 import changeText from "./changeText";
+import { useContext } from "react";
+import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
 
 const useInitialSquares = (squareNames) => {
   const [initialSquares, setInitialSquares] = useState([]);
@@ -13,7 +15,7 @@ const useInitialSquares = (squareNames) => {
     console.log(initialSquares);
   }, []);
 
-  return { initialSquares };
+  return { initialSquares, setInitialSquares };
 };
 
 export default useInitialSquares;

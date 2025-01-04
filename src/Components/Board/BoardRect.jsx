@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import checkClick from "./checkClick";
+import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
 
 const BoardRect = ({
   squareDimension,
@@ -10,6 +11,8 @@ const BoardRect = ({
   rectsRef,
   targetSquare,
 }) => {
+  const { setActiveRect } = useContext(FindSquareContext);
+
   return (
     <rect
       height={squareDimension}
@@ -22,7 +25,7 @@ const BoardRect = ({
       data-istarget={false}
       ref={(e) => (rectsRef.current[i] = e)}
       className="rects"
-      onClick={(e) => checkClick(e.target, targetSquare)}
+      onClick={(e) => checkClick(e.target, targetSquare, setActiveRect)}
     ></rect>
   );
 };

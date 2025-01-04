@@ -11,14 +11,15 @@ import { squares } from "../../Components/Helpers/squarenames";
 
 const FindSquareArena = () => {
   const squareNames = squares.map((e) => e.squareName);
-  const { initialSquares } = useInitialSquares(squareNames);
+  const { initialSquares, setInitialSquares } = useInitialSquares(squareNames);
   const { rects, rectsRef } = useRects();
   const { spans, spansRef } = useSpanRefs(initialSquares);
-  const { ActiveRect, setActiveRect } = useState([]);
+  const [activeRect, setActiveRect] = useState([]);
 
   useEffect(() => {
-    console.log(ActiveRect);
-  }, [ActiveRect]);
+    console.log(initialSquares);
+    console.log(activeRect);
+  }, [activeRect]);
 
   return (
     <FindSquareContext.Provider
@@ -29,8 +30,9 @@ const FindSquareArena = () => {
         spansRef,
         squareNames,
         initialSquares,
-        ActiveRect,
+        activeRect,
         setActiveRect,
+        setInitialSquares,
       }}
     >
       <>

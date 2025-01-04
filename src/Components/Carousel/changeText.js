@@ -1,13 +1,14 @@
 import React from 'react'
 import { pickRandomItem } from '../Utlis/random'
 
-const changeText = (squareNames, arr) => {
+const changeText = (squareNames, initialSquares, setInitialSquares) => {
 
-    if (arr.length > 0){
-        const shiftedSquare = arr.shift()
+    if (initialSquares.length > 0){
+        const shiftedSquare = initialSquares.shift()
         const randomSquare = pickRandomItem(squareNames)
-        arr.push(randomSquare)
-        console.log(arr)
+        initialSquares.push(randomSquare)
+        const updatedSquares = initialSquares;
+         setInitialSquares(updatedSquares)
     }
 
   
