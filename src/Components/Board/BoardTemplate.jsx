@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import BoardRect from "./BoardRect";
 import BoardText from "./BoardText";
 import useRects from "./useRects";
 import { useContext } from "react";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
+import useSetTargetSquare from "./useSetTargetSquare";
 
 const BoardTemplate = ({
   squareDimension,
@@ -14,22 +15,12 @@ const BoardTemplate = ({
   fontSize,
 }) => {
   const { rects, rectsRef, initialSquares } = useContext(FindSquareContext);
-
-  // const lightUpSquare = (rec, ini) => {
-  //   {
-  //     const targetSquare = initialSquares[0];
-  //     const targetRect = rects.filter((e) => e.dataset.name == targetSquare);
-  //     Object.assign(targetRect[0].style, {
-  //       fill: "#BAE94C",
-  //     });
-  //   }
-  // };
+  const { isTargetSquare } = useSetTargetSquare(initialSquares);
+  // const [isTargetSquare, setisTargetSquare] = useState([]);
 
   // useEffect(() => {
-  //   if (rects.length > 0 && initialSquares.length > 0) {
-  //     lightUpSquare(rects, initialSquares);
-  //   }
-  // }, [rects, initialSquares]);
+  //   setisTargetSquare(() => initialSquares[0]);
+  // }, [initialSquares]);
 
   // 8x8 Grid of rects and texts
   return (
@@ -44,6 +35,8 @@ const BoardTemplate = ({
               e={e}
               i={i}
               rectsRef={rectsRef}
+              targetSquare={isTargetSquare}
+              rects={rects}
             />
             <BoardText
               fontSize={fontSize}

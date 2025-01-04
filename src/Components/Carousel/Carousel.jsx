@@ -11,6 +11,9 @@ const Carousel = (type) => {
 
 export default Carousel;
 
-//// Create pages and setup ReactRouter　ハーシャウ
-////do Use contextAPI to connect carousel and board
-//todo write the onClick function for the rects
+//// write the onClick function for the rects
+//todo make the carousel move!!!!!
+// -> Create active states for rect
+// -> Create checkActive()
+// -> Create checkClick()
+//todo Fix the checkClick()

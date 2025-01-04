@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Board from "../../Components/Board/Board";
 import Carousel from "../../Components/Carousel/Carousel";
@@ -14,10 +14,24 @@ const FindSquareArena = () => {
   const { initialSquares } = useInitialSquares(squareNames);
   const { rects, rectsRef } = useRects();
   const { spans, spansRef } = useSpanRefs(initialSquares);
+  const { ActiveRect, setActiveRect } = useState([]);
+
+  useEffect(() => {
+    console.log(ActiveRect);
+  }, [ActiveRect]);
 
   return (
     <FindSquareContext.Provider
-      value={{ rects, rectsRef, spans, spansRef, squareNames, initialSquares }}
+      value={{
+        rects,
+        rectsRef,
+        spans,
+        spansRef,
+        squareNames,
+        initialSquares,
+        ActiveRect,
+        setActiveRect,
+      }}
     >
       <>
         <Carousel />
