@@ -17,3 +17,7 @@ export default Carousel;
 // -> Create checkActive()
 // -> Create checkClick()
 //todo Fix the checkClick()
+
+//todo Figure out what's happening with changeText and changeTextContent
+//todo Make the carousel move (I mean, really move this time)
+//todo Figure out the logic for score

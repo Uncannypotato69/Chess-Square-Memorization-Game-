@@ -93,3 +93,38 @@ body {
     max-height: 560px;
     max-width: 560px;
 }
+
+.carousel {
+    height: 6rem;
+    aspect-ratio: 2/1;
+    border: 2px solid silver;
+    position: relative;
+}
+
+.carousel__span {
+    position: absolute;
+    font-size: 1.5rem;
+    bottom: 0.5rem;
+    transform-origin: bottom left;
+    transition: 300ms all;
+    right: 50%;
+    font-weight: 600;
+}
+
+/* .Active {
+    color: springgreen;
+    scale: 2;
+}
+
+.Unactive {
+    scale: 0;
+    color: inherit;
+}
+
+.STH {
+    right: -25%;
+}
+
+.HTW {
+    right: calc(0% + 0.5rem);
+} */

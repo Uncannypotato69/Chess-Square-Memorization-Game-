@@ -8,7 +8,6 @@ const changeText = (squareNames, initialSquares, setInitialSquares) => {
         const randomSquare = pickRandomItem(squareNames)
         initialSquares.push(randomSquare)
         const updatedSquares = initialSquares;
-         setInitialSquares(updatedSquares)
     }
 
   

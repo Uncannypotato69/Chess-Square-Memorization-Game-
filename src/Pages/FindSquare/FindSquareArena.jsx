@@ -16,10 +16,9 @@ const FindSquareArena = () => {
   const { spans, spansRef } = useSpanRefs(initialSquares);
   const [activeRect, setActiveRect] = useState([]);
 
-  useEffect(() => {
-    console.log(initialSquares);
-    console.log(activeRect);
-  }, [activeRect]);
+  // useEffect(() => {
+  //   console.log("harsh");
+  // });
 
   return (
     <FindSquareContext.Provider

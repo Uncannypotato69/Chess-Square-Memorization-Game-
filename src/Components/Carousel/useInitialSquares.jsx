@@ -12,8 +12,11 @@ const useInitialSquares = (squareNames) => {
       pickRandomItem(squareNames)
     );
     setInitialSquares(initialSquares);
-    console.log(initialSquares);
   }, []);
+
+  useEffect(() => {
+    console.log(initialSquares);
+  }, [initialSquares]);
 
   return { initialSquares, setInitialSquares };
 };
