@@ -10,7 +10,7 @@ const useSpanRefs = (initialSquares) => {
     setSpans(spansRef.current);
   }, [initialSquares]);
 
-  return { spans, spansRef };
+  return { spans, spansRef, setSpans };
 };
 
 export default useSpanRefs;

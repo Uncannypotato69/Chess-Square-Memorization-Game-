@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 
 import React from 'react'
 
-const useSetTargetSquare = (initialSquares, activeRect) => {
+const useSetTargetSquare = (activeRect, spans) => {
 
   const [isTargetSquare, setisTargetSquare] = useState([]);
 
   useEffect(() => {
-    setisTargetSquare(() => initialSquares[0]);
-  }, [initialSquares, activeRect]);
+    spans.length > 0 && setisTargetSquare(() => spans[0].textContent);
+    console.log(activeRect)
+  }, [spans, activeRect]);
   
   return {isTargetSquare}
  

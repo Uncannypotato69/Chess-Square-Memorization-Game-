@@ -101,7 +101,7 @@ body {
     position: relative;
 }
 
-.carousel__span {
+/* .carousel__span {
     position: absolute;
     font-size: 1.5rem;
     bottom: 0.5rem;
@@ -109,7 +109,7 @@ body {
     transition: 300ms all;
     right: 50%;
     font-weight: 600;
-}
+} */
 
 /* .Active {
     color: springgreen;

@@ -8,17 +8,21 @@ import useRects from "../../Components/Board/useRects";
 import useSpanRefs from "../../Components/Carousel/useSpans";
 import useInitialSquares from "../../Components/Carousel/useInitialSquares";
 import { squares } from "../../Components/Helpers/squarenames";
+import useRandomSquare from "../../Components/Carousel/useRandomSquare";
 
 const FindSquareArena = () => {
   const squareNames = squares.map((e) => e.squareName);
   const { initialSquares, setInitialSquares } = useInitialSquares(squareNames);
+  // const { randomSquare, setRandomSquare } = useRandomSquare(squareNames);
   const { rects, rectsRef } = useRects();
-  const { spans, spansRef } = useSpanRefs(initialSquares);
+  const { spans, spansRef, setSpans } = useSpanRefs(initialSquares);
   const [activeRect, setActiveRect] = useState([]);
 
-  // useEffect(() => {
-  //   console.log("harsh");
-  // });
+  useEffect(() => {
+    if (spans.length > 0) {
+      spans.map((e) => console.log(e));
+    }
+  });
 
   return (
     <FindSquareContext.Provider
@@ -32,6 +36,7 @@ const FindSquareArena = () => {
         activeRect,
         setActiveRect,
         setInitialSquares,
+        setSpans,
       }}
     >
       <>

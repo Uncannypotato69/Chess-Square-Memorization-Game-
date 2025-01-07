@@ -5,7 +5,6 @@ import useSpanRefs from "./useSpans";
 import { useContext } from "react";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
 import changeText from "./changeText";
-import changeTextContent from "./changeTextContent";
 
 const addStyles = (arr) => {
   let styles = [
@@ -31,7 +30,6 @@ const addStyles = (arr) => {
 
   arr.map((e, i) => {
     Object.assign(e.style, styles[i]);
-    console.log(e);
   });
 };
 
@@ -39,23 +37,18 @@ const CarouselTemplate = () => {
   const {
     spans,
     spansRef,
+    setSpans,
     initialSquares,
     activeRect,
     squareNames,
     hasRendered,
     setHasRendered,
     setInitialSquares,
+    randomSquare,
   } = useContext(FindSquareContext);
 
   useEffect(() => {
-    addStyles(spans);
-  });
-
-  useEffect(() => {}, []);
-
-  useEffect(() => {
-    changeText(squareNames, initialSquares, setInitialSquares);
-    changeTextContent(spans, squareNames);
+    changeText(squareNames, initialSquares, setInitialSquares, spans, setSpans);
   }, [activeRect]);
 
   return (

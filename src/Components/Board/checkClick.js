@@ -5,7 +5,7 @@ import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
 const checkClick = (rect, targetSquare, setActiveRect) => {
   rect.dataset.name == targetSquare
     ? setActiveRect(rect)
-    : console.log("Clicked the wrong square");
+    : console.log("Clicked the wrong square", targetSquare);
 };
 
 export default checkClick;
