@@ -22,12 +22,13 @@ const FindSquareArena = () => {
       const rectArr = rects.filter((e) => e.dataset.name == activeSqName);
       const rect = rectArr[0];
       setActiveRect(rect);
+      console.log(activeRect);
     }
   });
 
   // useEffect(() => {
-  //   console.log(rects);
-  // });
+  //   console.log(activeRect);
+  // }, [spans]);
   // const { spans, spansRef, setSpans } = useSpanRefs(initialSquares);
 
   // useEffect(() => {
@@ -41,6 +42,7 @@ const FindSquareArena = () => {
       value={{
         squareNames,
         initialSquares,
+        spans,
         spansRef,
         rectRefs,
         activeRect,

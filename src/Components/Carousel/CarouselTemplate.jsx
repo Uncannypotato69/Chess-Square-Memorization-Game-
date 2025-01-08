@@ -5,8 +5,7 @@ import SquareNameSpan from "./SquareNameSpan";
 import { changeText } from "./changeText";
 
 const CarouselTemplate = () => {
-  const { initialSquares, spansRef, spans, squareNames } =
-    useContext(FindSquareContext);
+  const { initialSquares, spansRef } = useContext(FindSquareContext);
 
   return (
     <div className={`carousel`}>

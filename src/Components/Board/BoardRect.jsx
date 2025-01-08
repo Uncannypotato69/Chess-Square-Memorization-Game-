@@ -10,7 +10,8 @@ const BoardRect = ({
   darkColor,
   rectRefs,
 }) => {
-  const { activeRect } = useContext(FindSquareContext);
+  const { activeRect, spans, squareNames, setActiveRect } =
+    useContext(FindSquareContext);
 
   return (
     <rect
@@ -23,7 +24,16 @@ const BoardRect = ({
       data-name={e.squareName}
       className="rects"
       ref={(el) => (rectRefs.current[i] = el)}
-      onClick={(el) => checkClick(el.target, activeRect)}
+      onClick={(el) =>
+        checkClick(
+          el.target,
+          activeRect,
+          spans,
+          squareNames,
+          activeRect,
+          setActiveRect
+        )
+      }
     ></rect>
   );
 };
