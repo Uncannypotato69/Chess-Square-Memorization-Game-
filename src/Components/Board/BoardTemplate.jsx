@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import BoardRect from "./BoardRect";
 import BoardText from "./BoardText";
-import useRects from "./useRects";
 import { useContext } from "react";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
-import useSetTargetSquare from "./useSetTargetSquare";
 
 const BoardTemplate = ({
   squareDimension,
@@ -14,10 +12,6 @@ const BoardTemplate = ({
   darkColor,
   fontSize,
 }) => {
-  const { rects, spans, rectsRef, initialSquares, activeRect } =
-    useContext(FindSquareContext);
-  const { isTargetSquare } = useSetTargetSquare(activeRect, spans);
-
   // 8x8 Grid of rects and texts
   return (
     <svg length="auto" className="board" viewBox="0 0 400 400">
@@ -30,9 +24,6 @@ const BoardTemplate = ({
               darkColor={darkColor}
               e={e}
               i={i}
-              rectsRef={rectsRef}
-              targetSquare={isTargetSquare}
-              rects={rects}
             />
             <BoardText
               fontSize={fontSize}

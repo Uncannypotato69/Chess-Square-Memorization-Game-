@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import useInitialSquares from "./useInitialSquares";
 import CarouselTemplate from "./CarouselTemplate";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
 
