@@ -3,13 +3,13 @@ import React, { useEffect, useRef, useState } from "react";
 const useRects = () => {
   const [rects, setRects] = useState([]);
 
-  const rectsRef = useRef([]);
+  const rectRefs = useRef([]);
 
   useEffect(() => {
-    setRects(rectsRef.current);
+    setRects(rectRefs.current);
   }, [rects]);
 
-  return { rects, rectsRef };
+  return { rects, rectRefs };
 };
 
 export default useRects;

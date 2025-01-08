@@ -1,19 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useContext } from "react";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
+import SquareNameSpan from "./SquareNameSpan";
+import { changeText } from "./changeText";
 
 const CarouselTemplate = () => {
+  const { initialSquares, spansRef, spans, squareNames } =
+    useContext(FindSquareContext);
+
   return (
     <div className={`carousel`}>
       {initialSquares.map((e, i) => {
         return (
-          <span
+          <SquareNameSpan
             className={`carousel__span`}
-            key={`carouselText${i}`}
-            ref={(e) => (spansRef.current[i] = e)}
-          >
-            {e}
-          </span>
+            key={`carouselText-${i}-${e}-${Date.now()}`}
+            spansRef={spansRef}
+            e={e}
+            i={i}
+          />
         );
       })}
     </div>

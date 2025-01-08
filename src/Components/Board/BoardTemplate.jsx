@@ -4,6 +4,7 @@ import BoardRect from "./BoardRect";
 import BoardText from "./BoardText";
 import { useContext } from "react";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
+import { changeText } from "../Carousel/changeText";
 
 const BoardTemplate = ({
   squareDimension,
@@ -12,6 +13,8 @@ const BoardTemplate = ({
   darkColor,
   fontSize,
 }) => {
+  const { rectRefs } = useContext(FindSquareContext);
+
   // 8x8 Grid of rects and texts
   return (
     <svg length="auto" className="board" viewBox="0 0 400 400">
@@ -24,6 +27,7 @@ const BoardTemplate = ({
               darkColor={darkColor}
               e={e}
               i={i}
+              rectRefs={rectRefs}
             />
             <BoardText
               fontSize={fontSize}
