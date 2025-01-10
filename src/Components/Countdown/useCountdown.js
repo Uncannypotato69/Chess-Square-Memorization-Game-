@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react"
 
-export const useCountDown = (returnTime, initialTime) => {
+export const useCountDown = (returnTime, gameDuration) => {
 
     const [time, setTime] = useState(() => {
-        const { minutes, seconds, milliseconds } = returnTime(initialTime)
+        const { minutes, seconds, milliseconds } = returnTime(gameDuration)
         return {minutes, seconds, milliseconds}
     })
+
+    useEffect(() => {
+        setTime(returnTime(gameDuration))
+    }, [gameDuration])
 
     useEffect(() => {
         let customInterval = null;
@@ -47,7 +51,7 @@ export const useCountDown = (returnTime, initialTime) => {
                 }
             }
         }
-    }, [])
+    }, [time])
 
     return `${time.minutes}:${time.seconds.toString().padStart(2, '0')}.${time.milliseconds.toString()}`
 }

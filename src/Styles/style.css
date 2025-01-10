@@ -128,3 +128,11 @@ body {
 .HTW {
     right: calc(0% + 0.5rem);
 } */
+
+
+.CountdownConfig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
