@@ -1,9 +1,12 @@
 import React from "react";
 
+import CountdownTimer from "../../Components/Countdown/CountdownTimer";
+
 const Homepage = () => {
   return (
     <div className="testSection">
-      <p>💙💙💙💙💙🤍🤍🤍🤍🤍💛💛💛💛💛</p>;
+      <p>💙💙💙💙💙🤍🤍🤍🤍🤍💛💛💛💛💛</p>
+      <CountdownTimer />
     </div>
   );
 };
