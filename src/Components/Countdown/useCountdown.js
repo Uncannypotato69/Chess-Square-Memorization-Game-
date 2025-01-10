@@ -51,3 +51,6 @@ export const useCountDown = (returnTime, initialTime) => {
 
     return `${time.minutes}:${time.seconds.toString().padStart(2, '0')}.${time.milliseconds.toString()}`
 }
+
+//todo add the styles to the timer component 
+//todo create radio buttons to select initialTime
