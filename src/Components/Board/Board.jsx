@@ -3,6 +3,7 @@ import squareData from "../Helpers/squareData";
 
 import classes from "../TestComponent.module.css";
 import BoardTemplate from "./BoardTemplate";
+import getSideCordsData from "../Helpers/getSideCordsData";
 
 const Board = ({ orientation, type }) => {
   const {
@@ -14,6 +15,8 @@ const Board = ({ orientation, type }) => {
     squareDimension,
   } = squareData(orientation, type);
 
+  const { filesWithData, ranksWithData } = getSideCordsData(orientation);
+
   // Returns an SVG with 8x8 grid of rects and texts for squareNames
   return (
     <BoardTemplate
@@ -22,6 +25,8 @@ const Board = ({ orientation, type }) => {
       lightColor={lightColor}
       darkColor={darkColor}
       fontSize={fontSize}
+      filesWithData={filesWithData}
+      ranksWithData={ranksWithData}
     />
   );
 };

@@ -258,4 +258,25 @@ export const squares = [
 ]
 
 
+export const files = [
+    { fileName: "a", white: true },
+    { fileName: "b", white: false },
+    { fileName: "c", white: true },
+    { fileName: "d", white: false },
+    { fileName: "e", white: true },
+    { fileName: "f", white: false },
+    { fileName: "g", white: true },
+    { fileName: "h", white: false },
+  ];
+
+export const ranks = [
+    { rankName: "1", white: false },
+    { rankName: "2", white: true },
+    { rankName: "3", white: false },
+    { rankName: "4", white: true },
+    { rankName: "5", white: false },
+    { rankName: "6", white: true },
+    { rankName: "7", white: false },
+    { rankName: "8", white: true },
+  ];
   

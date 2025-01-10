@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import classes from "../TestComponent.module.css";
 
 import BoardRect from "./BoardRect";
 import BoardText from "./BoardText";
@@ -12,6 +13,8 @@ const BoardTemplate = ({
   lightColor,
   darkColor,
   fontSize,
+  filesWithData,
+  ranksWithData,
 }) => {
   const { rectRefs } = useContext(FindSquareContext);
 
@@ -29,14 +32,29 @@ const BoardTemplate = ({
               i={i}
               rectRefs={rectRefs}
             />
-            <BoardText
+            {/* <BoardText
               fontSize={fontSize}
               lightColor={lightColor}
               darkColor={darkColor}
               e={e}
               i={i}
-            />
+            /> */}
           </React.Fragment>
+        );
+      })}
+      {ranksWithData.map((e, i) => {
+        return (
+          <text
+            fontFamily={"monospace"}
+            fontSize={fontSize}
+            x={e.x}
+            y={e.y}
+            key={`text-${e.rankName}-${i}`}
+            fill={e.white ? lightColor : darkColor}
+            className={`${classes.svg__text} unselectable`}
+          >
+            {e.rankName}
+          </text>
         );
       })}
     </svg>

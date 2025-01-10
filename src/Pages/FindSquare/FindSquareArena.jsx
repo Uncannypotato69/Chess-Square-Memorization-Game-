@@ -32,11 +32,6 @@ const FindSquareArena = () => {
     }
   });
 
-  // useEffect(() => {
-  //   console.log(activeRect);
-  // }, [spans]);
-  // const { spans, spansRef, setSpans } = useSpanRefs(initialSquares);
-
   return (
     <FindSquareContext.Provider
       value={{
@@ -53,10 +48,8 @@ const FindSquareArena = () => {
       }}
     >
       <>
-        {/* <Carousel />
-        <Board orientation={"asWhite"} /> */}
-        <CountdownConfig />
-        <CountdownTimer />
+        {/* <Carousel /> */}
+        <Board orientation={"asWhitee"} />
       </>
     </FindSquareContext.Provider>
   );
