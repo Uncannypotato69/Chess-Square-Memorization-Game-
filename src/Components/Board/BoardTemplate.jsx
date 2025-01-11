@@ -16,7 +16,8 @@ const BoardTemplate = ({
   filesWithData,
   ranksWithData,
 }) => {
-  const { rectRefs } = useContext(FindSquareContext);
+  const { rectRefs, sideCordsState, cordsState } =
+    useContext(FindSquareContext);
 
   // 8x8 Grid of rects and texts
   return (
@@ -32,31 +33,53 @@ const BoardTemplate = ({
               i={i}
               rectRefs={rectRefs}
             />
-            {/* <BoardText
-              fontSize={fontSize}
-              lightColor={lightColor}
-              darkColor={darkColor}
-              e={e}
-              i={i}
-            /> */}
+            {cordsState && (
+              <BoardText
+                fontSize={fontSize}
+                lightColor={lightColor}
+                darkColor={darkColor}
+                e={e}
+                i={i}
+              />
+            )}
           </React.Fragment>
         );
       })}
-      {ranksWithData.map((e, i) => {
-        return (
-          <text
-            fontFamily={"monospace"}
-            fontSize={fontSize}
-            x={e.x}
-            y={e.y}
-            key={`text-${e.rankName}-${i}`}
-            fill={e.white ? lightColor : darkColor}
-            className={`${classes.svg__text} unselectable`}
-          >
-            {e.rankName}
-          </text>
-        );
-      })}
+      {sideCordsState &&
+        cordsState === false &&
+        ranksWithData.map((e, i) => {
+          return (
+            <text
+              fontFamily={"monospace"}
+              fontSize={fontSize}
+              x={e.x}
+              y={e.y}
+              key={`text-${e.rankName}-${i}`}
+              fill={e.white ? lightColor : darkColor}
+              className={`${classes.svg__text} unselectable`}
+            >
+              {e.rankName}
+            </text>
+          );
+        })}
+      {sideCordsState &&
+        cordsState === false &&
+        filesWithData.map((e, i) => {
+          return (
+            <text
+              fontFamily={"monospace"}
+              fontSize={fontSize}
+              x={e.x}
+              y={e.y}
+              key={`text-${e.fileName}-${i}`}
+              fill={e.white ? lightColor : darkColor}
+              strokeWidth={10}
+              className={`${classes.svg__text} unselectable`}
+            >
+              {e.fileName}
+            </text>
+          );
+        })}
     </svg>
   );
 };

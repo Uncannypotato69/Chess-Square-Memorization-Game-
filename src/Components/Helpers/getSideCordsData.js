@@ -3,36 +3,31 @@ import getSideCordsPosition from "./getSideCordsPosition";
 import { ranks, files } from "./squarenames"
 
 const getSideCordsData = (orientation) => {
-    const r = ranks;
-    const f = files;
+  const r = orientation === "asWhite" 
+  ? ranks 
+  : ranks.map((e) => ({ ...e, white: !e.white }));
+    const f =  orientation === "asWhite"
+    ? files
+    : files.map((e) => ({...e, white: !e.white}));
 
-  let {dimension, darkColor, lightColor, fontSize, squareDimension} = boardConfig;
-
-  const changeColor = (file) => {
-    if(orientation === "asWhite"){
-        return file
-    }
-    file.white = !file.white
-  }
+  let {dimension,fontSize, squareDimension} = boardConfig;
 
   const filesWithData = f.map((e, i) => {
-    let {x} = getSideCordsPosition(i, dimension, squareDimension, fontSize, orientation)
+    let {xFile, yFile} = getSideCordsPosition(i, dimension, squareDimension, fontSize, orientation)
 
     return {
         ...e, 
-        x,
-        y: (dimension - squareDimension) + 4
+        x: xFile,
+        y: yFile,
     }
   })
 
   const ranksWithData = r.map((e, i) => {
-    let {x , y} = getSideCordsPosition(i, dimension, squareDimension, fontSize, orientation)
-    changeColor(e)
-
+    let {xRank , yRank} = getSideCordsPosition(i, dimension, squareDimension, fontSize, orientation)
     return {
         ...e, 
-        y,
-        x
+        y: yRank,
+        x: xRank
     }
   })
 
@@ -40,7 +35,3 @@ const getSideCordsData = (orientation) => {
 }
 
 export default getSideCordsData
-
-//todo Complete the sideCordinates
-//! Fix the colorChange Problem
-//? Figure out the positons of the side cords
