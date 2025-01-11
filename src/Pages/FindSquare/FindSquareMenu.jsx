@@ -71,3 +71,6 @@ const FindSquareMenu = () => {
 };
 
 export default FindSquareMenu;
+
+//todo Fix the react router bug (The toggles are getting re-rendered)
+//todo Make components for all the settings left
