@@ -7,10 +7,11 @@ import "./Styles/modern-normalize.css";
 import "./Styles/style.css";
 import "./Styles/utils.css";
 
-import FindSquareMenu from "./Pages/FindSquare/FIndSquareMenu";
+import FindSquareMenu from "./Pages/FindSquare/FindSquareMenu";
 import Homepage from "./Pages/HomePage/Homepage";
 import Carousel from "./Components/Carousel/Carousel";
-import FindSquareArena from "./Pages/FindSquare/FIndSquareArena";
+import FindSquareGame from "./Pages/FindSquare/FindSquareGame";
+import CountdownTimer from "./Components/Countdown/CountdownTimer";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
     element: <FindSquareMenu />,
     children: [
       {
-        path: "/find-square-menu/find-square-arena",
-        element: <FindSquareArena />,
+        path: "/find-square-menu/game", // This matches the same `/find-square-menu` route
+        element: <CountdownTimer />,
       },
     ],
   },

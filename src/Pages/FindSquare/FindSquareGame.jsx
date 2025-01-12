@@ -11,27 +11,14 @@ import useRects from "../../Components/Board/useRects";
 import CountdownConfig from "../../Components/Countdown/CountdownConfig";
 import CountdownTimer from "../../Components/Countdown/CountdownTimer";
 
-const FindSquareArena = () => {
-  const {
-    squareNames,
-    initialSquares,
-    spans,
-    spansRef,
-    rectRefs,
-    activeRect,
-    setActiveRect,
-    setSpans,
-    gameDuration,
-    setGameDuration,
-    orientation,
-  } = useContext(FindSquareContext);
+const FindSquareGame = () => {
+  const { orientation } = useContext(FindSquareContext);
 
   return (
     <>
-      {/* <Carousel /> */}
       <Board orientation={orientation} />
     </>
   );
 };
 
-export default FindSquareArena;
+export default FindSquareGame;

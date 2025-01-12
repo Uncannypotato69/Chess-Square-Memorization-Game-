@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FindSquareContext } from "../Helpers/Contexts/FindSquareContext";
-import { checkClick } from "./checkClick";
-
+import handleRectClick from "../Carousel/handleRectClick";
 const BoardRect = ({
   squareDimension,
   e,
@@ -24,16 +23,9 @@ const BoardRect = ({
       data-name={e.squareName}
       className="rects"
       ref={(el) => (rectRefs.current[i] = el)}
-      onClick={(el) =>
-        checkClick(
-          el.target,
-          activeRect,
-          spans,
-          squareNames,
-          activeRect,
-          setActiveRect
-        )
-      }
+      onClick={(el) => {
+        handleRectClick(el, activeRect);
+      }}
     ></rect>
   );
 };
